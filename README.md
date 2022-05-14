@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# React - Todo list
 
 ### 리액트로 todolist 만들기!
 
