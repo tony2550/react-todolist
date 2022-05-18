@@ -16,7 +16,6 @@ const App = () => {
       <GlobalStyle />
       <TodoTemplate>
         <TodoHead />
-        Hello!! There!!!
         <TodoList />
       </TodoTemplate>
     </>
