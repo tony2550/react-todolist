@@ -1,4 +1,4 @@
-import React, { useReducer, createContext } from 'react';
+import React, { useReducer, createContext, useContext, useRef } from 'react';
 
 const initialTodos = [
   {
@@ -25,6 +25,7 @@ const initialTodos = [
 
 const TodoStateContext = createContext();
 const TodoDispatchContext = createContext();
+const TodoNextIdContext = createContext();
 
 const todoReducer = (state, action) => {
   switch (action.type) {
@@ -39,7 +40,7 @@ const todoReducer = (state, action) => {
   }
 };
 
-const TodoContext = ({ Children }) => {
+export const TodoContext = ({ Children }) => {
   const [state, dispatch] = useReducer(todoReducer, initialTodos);
   return (
     <>
@@ -50,4 +51,14 @@ const TodoContext = ({ Children }) => {
   );
 };
 
-export default TodoContext;
+export const useTodoState = () => {
+  return useContext(TodoStateContext);
+};
+
+export const useTodoDispatch = () => {
+  return useContext(TodoDispatchContext);
+};
+
+export function useTodoNextId() {
+  return useContext(TodoNextIdContext);
+}
