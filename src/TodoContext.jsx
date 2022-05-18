@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react';
+import React, { useReducer, createContext } from 'react';
 
 const initialTodos = [
   {
@@ -23,6 +23,9 @@ const initialTodos = [
   },
 ];
 
+const TodoStateContext = createContext();
+const TodoDispatchContext = createContext();
+
 const todoReducer = (state, action) => {
   switch (action.type) {
     case 'CREATE':
@@ -38,7 +41,13 @@ const todoReducer = (state, action) => {
 
 const TodoContext = ({ Children }) => {
   const [state, dispatch] = useReducer(todoReducer, initialTodos);
-  return Children;
+  return (
+    <>
+      <TodoStateContext.Provider value={state}>
+        <TodoDispatchContext.Provider value={dispatch}>{Children}</TodoDispatchContext.Provider>
+      </TodoStateContext.Provider>
+    </>
+  );
 };
 
 export default TodoContext;
