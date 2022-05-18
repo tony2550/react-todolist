@@ -5,17 +5,16 @@ const TodoTemplateBlock = styled.div`
   background-color: white;
   position: relative;
   overflow: hidden;
-  width: 93vw;
-  height: calc(93vw * 0.5625);
-  max-height: 80vh;
-  max-width: calc(93vh * 1.78);
-  margin: auto;
+  width: 40vw;
+  height: 80vh;
+  margin: 0 auto;
 
-  margin-top: calc(7vw * 0.5625);
-  margin-bottom: calc(7vw * 0.5625);
-
+  margin-top: 10vh;
+  margin-bottom: 10vh;
   display: flex;
   flex-direction: column;
+
+  border-radius: 16px;
 `;
 
 const TodoTemplate = ({ children }) => {
